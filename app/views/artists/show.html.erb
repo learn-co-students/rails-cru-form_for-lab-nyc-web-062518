@@ -1,0 +1,17 @@
+<h1><%= @artist.name %></h1>
+
+Bio
+<p>- <%= @artist.bio %><p>
+
+
+<h2>Songs</h2>
+<ul>
+    <% @artist.songs.map do |song| %>
+    <li><%= link_to song.name, song_path(song.id) %> <%= link_to song.genre.name, genre_path(song.genre_id) %></li>
+    <% end %>
+
+<ul>
+
+
+<%= link_to 'All Artists', artists_path %>
+<%= link_to 'Edit', edit_artist_path(@artist.id) %>
